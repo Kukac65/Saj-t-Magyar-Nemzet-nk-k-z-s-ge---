@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlipzyOfficial</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background: #0a0a0a;
+    color: white;
+    overflow-x: hidden;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: #0ff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    color: #ff00ff;
+}
+
+section {
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+.active {
+    display: flex;
+    animation: fade 0.6s ease;
+}
+
+@keyframes fade {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+h1 {
+    font-size: 60px;
+    background: linear-gradient(90deg, #0ff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    margin-top: 20px;
+    max-width: 600px;
+    opacity: 0.8;
+}
+
+.btn {
+    margin-top: 30px;
+    padding: 12px 25px;
+    border: 2px solid #0ff;
+    color: #0ff;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #0ff;
+    color: black;
+}
+
+.video-box {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ff00ff;
+    border-radius: 15px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <button onclick="showPage('home')">Főoldal</button>
+    <button onclick="showPage('portfolio')">Munkáim</button>
+    <button onclick="showPage('about')">Rólam</button>
+    <button onclick="showPage('contact')">Kapcsolat</button>
+</nav>
+
+<section id="home" class="active">
+    <h1>FLIPZYOFFICIAL</h1>
+    <p>Video Editor | TikTok Creator | Cinematic & Beat Sync Edits</p>
+    <button class="btn" onclick="showPage('portfolio')">Nézd meg a munkáim</button>
+</section>
+
+<section id="portfolio">
+    <h1>MUNKÁIM</h1>
+    <div class="video-box">
+        <p>Itt tudod beilleszteni a TikTok videó linkeket vagy embed kódokat.</p>
+    </div>
+</section>
+
+<section id="about">
+    <h1>MAGAMRÓL</h1>
+    <p>
+        Sziasztok, Flipzy vagyok. Editeléssel foglalkozom, főleg gyors vágásokkal,
+        glow effektekkel és cinematic vibe-bal. Célom, hogy minden videó ütős legyen.
+    </p>
+</section>
+
+<section id="contact">
+    <h1>KAPCSOLAT</h1>
+    <p>Discord: flipzyofficial#0001</p>
+    <p>TikTok: @flipzyofficial</p>
+</section>
+
+<script>
+function showPage(pageId) {
+    document.querySelectorAll("section").forEach(section => {
+        section.classList.remove("active");
+    });
+    document.getElementById(pageId).classList.add("active");
+}
+</script>
+
+</body>
+</html>
